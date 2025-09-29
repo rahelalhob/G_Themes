@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متجر غدير</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap" rel="stylesheet">
+<style>
+
+/* الخلفية */
+body{margin:0;padding:0;
+  font-family:'Cairo', sans-serif;
+  background:#0592e460; 
+  color:#000000}
+
+/* الشريط العلوي */
+/* ✅ الهيدر بخلفية صورة */
+
+
+header {
+
+
+  background: url("https://www2.0zz0.com/2025/09/06/13/100896483.png") no-repeat center center / cover;
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+    box-shadow: inset 0 7px 12px 3px rgb(0, 0, 0);}
+
+/* ✅ محتوى الهيدر */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.android-btn img {
+  filter: drop-shadow(0 3px 5px rgb(255, 255, 255)); /* ظل للشعار */
+}
+
+
+/* الأزرار */
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* زر السلة */
+header .cart-btn {
+  background: #fff;
+  color: #000000;
+  padding: 6px 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+/* شعار الأندرويد */
+header .android-btn img {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 4px 6px #000000);
+}
+
+header img.logo{width:100px;
+  height:100px;
+  border-radius:100% ;
+   box-shadow: 0 1px 15px rgb(0, 0, 0)}
+
+header .cart-btn{position:absolute;
+  left:10px;top:10px;
+  background:#fcf8f8;
+  color:#000000; 
+  padding:5px 5px;
+   box-shadow:0 8px 10px rgb(0, 0, 0);
+    border-radius:15px;
+     text-decoration:no #000000; font-weight:bold}
+header .cart-btn span{background:rgb(0, 0, 0);
+  color:#fff;
+  border-radius:50%;
+  padding:2px 6px;
+  font-size:0.8rem;
+  margin-left:10px}
+
+/* slider */
+.slider {width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #395b5f69;
+  height: 130px;
+   padding: 10px;
+  box-sizing: border-box;
+ box-shadow: 0 7px 10px rgb(0, 0, 0);}
+.slides {display: flex;transition: transform 3s ease-in-out;gap: 0px;}
+.slides img {height: 100px;width: 1000px;object-fit: contain;background:  #000000;border: 5px solid #ffffff;border-radius:15px;box-shadow: 0 7px 10px rgb(0, 0, 0);}
+
+/* ✅ شبكة المنتجات */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 10px;
+}
+
+/* للجوال: عمودين */
+@media (max-width: 600px) {
+  .product-grid {grid-template-columns: repeat(2, 1fr);}
+}
+
+/* للتابلت: 3 أعمدة */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .product-grid {grid-template-columns: repeat(3, 1fr);}
+}
+
+/* للكمبيوتر: 4 أعمدة */
+@media (min-width: 1025px) {
+  .product-grid {grid-template-columns: repeat(4, 1fr);}
+}
+
+/* بطاقة المنتجا   */
+.product-item{background:#0d3c4e27;border-radius:12px;
+      box-shadow: inset 0 8px 9px 4px rgb(0, 0, 0);
+  overflow:hidden;
+  text-align:center;
+  transition:.3s}
+
+.product-item:hover{transform:scale(1.03)}
+.product-image img {
+  width: 50%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgb(0, 0, 0); /* ✅ ظل للصورة */
+  transition: transform 0.3s ease;
+}
+.product-image img:hover {
+  transform: scale(1.08); /* 🔼 تكبير بسيط عند التمرير */
+}
+
+
+.product-title{font-size:1rem;color:#316903;margin:5px 0}
+.product-row{display:flex;justify-content:center;gap:10px;align-items:center}
+.product-price{color:#f00;font-weight:bold}
+.contact-button{display:inline-block;background:#184b01;color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;cursor:pointer;margin-top:8px}
+.contact-button:hover{background:#04704c}
+
+/* cart */
+section{display:none;padding:15px}
+section.active{display:block}
+.cart-item{display:flex;gap:8px;background:#717c812a;padding:8px;border-radius:10px;margin-bottom:10px;align-items:center;box-shadow:0 8px 20px rgb(0, 0, 0)}
+.cart-item img{width:70px;height:70px;object-fit:cover;border-radius:8px}
+.info{flex:1}
+.actions{display:flex;gap:5px;margin-top:5px}
+.small{background:#ffffff;padding:4px 8px;border-radius:10px;border:0}
+.btn{padding:6px 10px;border-radius:6px;border:0;cursor:pointer;font-weight:700}
+.btn.primary{background:#014e24;color:#fff}
+.btn.danger{background:#e02424;color:#fff}
+.tot{background:#ffffff3d;padding:12px;border-radius:10px;box-shadow:0 8px 20px rgb(0, 0, 0);font-weight:800;margin-top:15px}
+
+/* Toast */
+#toast {visibility: hidden;min-width: 220px;margin-left: -110px;color: #fff;text-align: center;border-radius: 8px;padding: 12px;position: fixed;z-index: 9999;left: 50%;bottom: 30px;font-size: 1rem;opacity: 0;transition: opacity 0.5s, bottom 0.5s;}
+#toast.show {visibility: visible;opacity: 1;bottom: 50px;}
+#toast.success {background: #28a745;}
+#toast.error {background: #dc3545;}
+#toast.warning {background: #ffc107;color:#333;}
+#toast.info {background: #007bff;}
+
+/* ✅ النافذة المنبثقة */
+.modal {display:none;position:fixed;z-index:10000;left:0;top:0;width:100%;height:100%;background:rgba(255, 254, 255, 0.7);justify-content:center;align-items:center}
+.modal-content {background:#bdd4e4;padding:20px;border-radius:12px;box-shadow: 0 12px 20px rgb(0, 0, 0); width:80%;max-width:500px;position:relative;text-align:center}
+.modal h2 {margin:10px 0}
+.modal .price {color:rgb(25, 77, 1);font-weight:bold}
+.modal .close {position:absolute;top:10px;right:15px;cursor:pointer;font-size:22px}
+
+/* ✅ سلايدر صور داخل النافذة */
+.modal-slider {position:relative;overflow:hidden}
+
+.modal-slider img {
+  width: 100%;
+  max-height: 300px; /* 🔼 زودت الطول */
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0); /* 🔥 ظل للصور داخل النافذة */
+  transition: transform 0.3s ease;
+}
+.modal-slider img:hover {
+  transform: scale(1.00); /* 🔼 تكبير عند مرور الماوس */
+}
+
+.modal-nav {position:absolute;top:50%;transform:translateY(-50%);font-size:24px;cursor:pointer;background:rgba(0,0,0,0.5);color:#fff;padding:6px 10px;border-radius:50%}
+.modal-nav.prev {left:10px}
+.modal-nav.next {right:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://www2.0zz0.com/2025/09/06/13/100896483.png" class="logo">
+  ✨ متجر ثيمات ✨
+  <div class="header-buttons">
+    <!-- زر السلة -->
+    <a href="#" onclick="showSection('cart')" class="cart-btn">
+      🛒 <span id="cartCount">0</span>
+    </a>
+
+    <!-- زر تحميل التطبيق -->
+    <a href="رابط_تحميل_تطبيقك" target="_blank" class="android-btn">
+      <img src="https://www2.0zz0.com/2025/09/14/17/660677766.png" alt="Android" style="width:30px;height:30px;">
+    </a>
+  </div></header>
+
+<!-- 🖼️ بنر -->
+<div class="slider">
+  <div class="slides" id="slideBox">
+    <img src="https://www2.0zz0.com/2025/09/15/11/456291007.png">
+    <img src="https://www2.0zz0.com/2025/09/12/22/593970389.png">  
+     <img src="https://www2.0zz0.com/2025/09/15/11/456291007.png">
+    <img src="https://www2.0zz0.com/2025/09/12/22/593970389.png">  
+     <img src="https://www2.0zz0.com/2025/09/15/11/456291007.png">
+    <img src="https://www2.0zz0.com/2025/09/12/22/593970389.png">  
+     <img src="https://www2.0zz0.com/2025/09/15/11/456291007.png">
+    <img src="https://www2.0zz0.com/2025/09/12/22/593970389.png">  
+
+    
+  </div>
+  <div class="slider-nav prev" onclick="moveSlide(-5)">❮</div>
+  <div class="slider-nav next" onclick="moveSlide(5)">❯</div>
+</div>
+
+<!-- 🛍️ المنتجات -->
+<section id="products" class="active">
+  <div class="product-grid">
+
+   
+
+
+    <div class="product-item"
+         data-id="p1"
+         data-title="اكتبي للعروس"
+         data-price="1.25"
+         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
+         data-desc="بطاقة طاولة"
+         data-size="13×8"
+         data-discount="0">
+        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
+        <div class="product-details">
+          <h2 class="product-title">اكتبي للعروس</h2>
+          <div class="product-row">
+            
+        <span class="product-price" style="text-decoration: line-through; color: red;">
+          1.25 ريال
+        </span>
+        <span class="product-price" style="color: green; font-weight: bold;">
+          1.25 ريال
+        </span>
+          </div>
+          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
+          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
+        </div>
+    </div>
+    
+    <div class="product-item"
+         data-id="p2"
+         data-title="اكتبي للعروس"
+         data-price="1.25"
+         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
+         data-desc="بطاقة طاولة"
+         data-size="13×8"
+         data-discount="0">
+        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
+        <div class="product-details">
+          <h2 class="product-title">اكتبي للعروس</h2>
+          <div class="product-row">
+            
+        <span class="product-price" style="text-decoration: line-through; color: red;">
+          1.25 ريال
+        </span>
+        <span class="product-price" style="color: green; font-weight: bold;">
+          1.25 ريال
+        </span>
+          </div>
+          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
+          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
+        </div>
+    </div>
+    
+    <div class="product-item"
+         data-id="p2"
+         data-title="اكتبي للعروس"
+         data-price="1.25"
+         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
+         data-desc="بطاقة طاولة"
+         data-size="13×8"
+         data-discount="0">
+        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
+        <div class="product-details">
+          <h2 class="product-title">اكتبي للعروس</h2>
+          <div class="product-row">
+            
+        <span class="product-price" style="text-decoration: line-through; color: red;">
+          1.25 ريال
+        </span>
+        <span class="product-price" style="color: green; font-weight: bold;">
+          1.25 ريال
+        </span>
+          </div>
+          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
+          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
+        </div>
+    </div>
+
+    <div class="product-item"
+         data-id="p2"
+         data-title="اكتبي للعروس"
+         data-price="1.25"
+         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
+         data-desc="بطاقة طاولة"
+         data-size="13×8"
+         data-discount="0">
+        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
+        <div class="product-details">
+          <h2 class="product-title">اكتبي للعروس</h2>
+          <div class="product-row">
+            
+        <span class="product-price" style="text-decoration: line-through; color: red;">
+          1.25 ريال
+        </span>
+        <span class="product-price" style="color: green; font-weight: bold;">
+          1.25 ريال
+        </span>
+          </div>
+          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
+          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
+        </div>
+    </div>
+
+    <div class="product-item"
+         data-id="p2"
+         data-title="اكتبي للعروس"
+         data-price="1.25"
+         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
+         data-desc="بطاقة طاولة"
+         data-size="13×8"
+         data-discount="0">
+        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
+        <div class="product-details">
+          <h2 class="product-title">اكتبي للعروس</h2>
+          <div class="product-row">
+            
+        <span class="product-price" style="text-decoration: line-through; color: red;">
+          1.25 ريال
+        </span>
+        <span class="product-price" style="color: green; font-weight: bold;">
+          1.25 ريال
+        </span>
+          </div>
+          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
+          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
+        </div>
+    </div>
+
+      
+
+    
+
+
+
+
+
+</section>
+
+<!-- ✅ النافذة المنبثقة -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✖</span>
+    <h2 id="modalTitle"></h2>
+    <div class="modal-slider">
+      <span class="modal-nav prev" onclick="changeModalImage(-1)">❮</span>
+      <img id="modalImage" src="">
+      <span class="modal-nav next" onclick="changeModalImage(1)">❯</span>
+    </div>
+    <p class="price" id="modalPrice"></p>
+    <p id="modalDesc"></p>
+    <p>الحجم: <span id="modalSize"></span></p>
+    <p> <span id="modalDiscount"></span></p>
+    
+  </div>
+</div>
+
+<!-- 🛒 السلة -->
+<section id="cart">
+  <h2>🛒 سلة المشتريات</h2>
+  <div id="main"></div>
+  <div class="tot">
+    <div>المجموع: <span id="total">0</span> ريال</div>
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <button class="btn primary" id="checkoutWhats">اطلب عبر واتساب</button>
+      <button class="btn" id="clearCart">حذف الكل</button>
+      <button class="btn" onclick="showSection('products')">⬅️ العودة للمنتجات</button>
+    </div>
+  </div>
+</section>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script>
+// 🔄 التنقل
+function showSection(id){
+  document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+// 🖼️ سلايدر
+let slideIndex=0;
+function moveSlide(step){
+  const slides=document.getElementById("slideBox");
+  const imgs=slides.querySelectorAll("img");
+  slideIndex=(slideIndex+step+imgs.length)%imgs.length;
+  slides.style.transform=`translateX(${-slideIndex*50}%)`;
+}
+setInterval(()=>moveSlide(1),4000);
+
+// 🛒 LocalStorage
+const PRODUCTS_KEY = 'shop_products';
+const CART_KEY = 'shop_cart';
+function getProducts(){try{return JSON.parse(localStorage.getItem(PRODUCTS_KEY))||[]}catch(e){return []}}
+function saveProducts(p){localStorage.setItem(PRODUCTS_KEY,JSON.stringify(p))}
+function getCart(){try{return JSON.parse(localStorage.getItem(CART_KEY))||[]}catch(e){return []}}
+function saveCart(c){localStorage.setItem(CART_KEY,JSON.stringify(c));render()}
+
+function addToCart(btn){
+  const box=btn.closest(".product-item");
+  const product={
+    id:box.dataset.id,
+    title_ar:box.dataset.title,
+    price:parseFloat(box.dataset.price),
+    images:box.dataset.image.split(","),
+    desc:box.dataset.desc,
+    size:box.dataset.size,
+    discount:parseFloat(box.dataset.discount)||0
+  };
+ let products = getProducts();
+const existingIndex = products.findIndex(p => p.id === product.id);
+
+if (existingIndex !== -1) {
+  // ✅ تحديث المنتج لو موجود
+  products[existingIndex] = product;
+} else {
+  // ✅ إضافة جديد لو مش موجود
+  products.push(product);
+}
+
+saveProducts(products);
+
+  let cart=getCart();
+  const item=cart.find(i=>i.id===product.id);
+  if(item){item.qty+=1}else{cart.push({id:product.id,qty:1})}
+  saveCart(cart);
+  updateCartCount();
+  showToast("✅ تمت الإضافة إلى السلة","success");
+}
+
+function render(){
+  const main=document.getElementById('main'); main.innerHTML='';
+  const cart=getCart(); const products=getProducts();
+  if(!cart.length){main.innerHTML='<div style="padding:20px;text-align:center;color:#666">السلة فارغة</div>';document.getElementById('total').textContent='0';updateCartCount();return}
+  let total=0;
+  cart.forEach(item=>{
+    const p=products.find(x=>x.id===item.id)||{title_ar:'غير معروف',price:0,images:[],desc:'',size:'',discount:0};
+    const price=p.discount?(p.price*(1-p.discount/100)):p.price;
+    total+=price*item.qty;
+    const div=document.createElement('div');div.className='cart-item';
+    div.innerHTML=`
+      <img src="${p.images[0]}">
+      <div class="info">
+        <div style="font-weight:800">${p.title_ar}</div>
+        <div style="color:#444">الوصف: ${p.desc} | الحجم: ${p.size}</div>
+        <div style="color:#666">${price.toFixed(2)} ريال × ${item.qty}</div>
+        <div class="actions">
+          <button class="btn small" onclick="changeQty('${item.id}',-1)">-</button>
+          <button class="btn small" onclick="changeQty('${item.id}',1)">+</button>
+          <button class="btn small danger" onclick="removeItem('${item.id}')">حذف</button>
+        </div>
+      </div>`;
+    main.appendChild(div);
+  });
+  document.getElementById('total').textContent=total.toFixed(2);
+  updateCartCount();
+}
+function changeQty(id,delta){
+  let cart=getCart(); const it=cart.find(i=>i.id===id); if(!it)return;
+  it.qty=Math.max(1,it.qty+delta); saveCart(cart)
+}
+function removeItem(id){
+  let cart=getCart(); cart=cart.filter(i=>i.id!==id); saveCart(cart)
+}
+function updateCartCount(){
+  const count=getCart().reduce((sum,i)=>sum+i.qty,0);
+  document.getElementById('cartCount').textContent=count;
+}
+
+// ✅ Toast ملون
+function showToast(msg,type="info"){
+  const toast=document.getElementById("toast");
+  toast.textContent=msg;
+  toast.className=`show ${type}`;
+  setTimeout(()=>{toast.className=toast.className.replace("show","");},2500);
+}
+
+document.getElementById('clearCart').addEventListener('click',()=>{
+  localStorage.removeItem(CART_KEY);
+  render();
+  showToast("🗑️ تم مسح السلة","warning");
+});
+
+document.getElementById('checkoutWhats').addEventListener('click',()=>{
+  const cart=getCart(); const products=getProducts(); if(!cart.length){showToast("❌ السلة فارغة","error");return}
+  const lines=cart.map(i=>{
+    const p=products.find(x=>x.id===i.id);
+    const pr=p.discount?(p.price*(1-p.discount/100)).toFixed(2):p.price;
+    return `${p.title_ar} - ${i.qty} × ${pr} ريال`;
+  });
+  const total=document.getElementById('total').textContent;
+  const msg=`أود طلب هذه المنتجات:%0A${lines.join('%0A')}%0Aالمجموع: ${total} ريال`;
+  const number='+966551625850';
+  window.open(`https://wa.me/${number.replace(/\D/g,'')}?text=${msg}`,'_blank');
+});
+render();
+
+// ✅ كود عرض المنتج (النافذة المنبثقة)
+let modalIndex = 0;
+let modalImages = [];
+
+function showProduct(btn){
+  const box = btn.closest(".product-item");
+  document.getElementById("modalTitle").textContent = box.dataset.title;
+  document.getElementById("modalPrice").textContent ="   السعر " + box.dataset.price + " ريال";
+  document.getElementById("modalDesc").textContent = "الوصف: " + box.dataset.desc;
+  document.getElementById("modalSize").textContent = box.dataset.size ;
+  document.getElementById("modalDiscount").textContent = "الخصم %" + box.dataset.discount;
+
+  modalImages = box.dataset.image.split(",");
+  modalIndex = 0;
+  document.getElementById("modalImage").src = modalImages[modalIndex];
+
+  document.getElementById("productModal").style.display = "flex";
+}
+function closeModal(){document.getElementById("productModal").style.display = "none";}
+function changeModalImage(step){
+  modalIndex = (modalIndex + step + modalImages.length) % modalImages.length;
+  document.getElementById("modalImage").src = modalImages[modalIndex];
+}
+
+
+</script>
+<!-- 🔔 نافذة تنبيه الاتصال -->
+<div id="netModal" class="modal">
+  <div class="modal-content">
+    <h2>⚠️ لا يوجد اتصال بالإنترنت</h2>
+    <p>يرجى التأكد من اتصالك بالشبكة.</p>
+    <button onclick="retryConnection()" class="btn primary">إعادة المحاولة</button>
+  </div>
+</div>
+
+<script>
+// 🔌 التحقق من الاتصال بالإنترنت
+function checkConnection() {
+  if (!navigator.onLine) {
+    document.getElementById("netModal").style.display = "flex";
+  } else {
+    document.getElementById("netModal").style.display = "none";
+  }
+}
+
+// 📡 تحديث عند انقطاع أو عودة الاتصال
+window.addEventListener("offline", () => {
+  document.getElementById("netModal").style.display = "flex";
+});
+
+window.addEventListener("online", () => {
+  document.getElementById("netModal").style.display = "none";
+});
+
+// ⏳ فحص أولي عند تحميل الصفحة
+window.addEventListener("load", checkConnection);
+
+// زر إعادة المحاولة
+function retryConnection() {
+  checkConnection();
+}
+</script>
+
+</body>
+</html>
