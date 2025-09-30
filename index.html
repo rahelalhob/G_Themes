@@ -18,14 +18,13 @@ body{margin:0;padding:0;
 
 
 header {
-
-
-  background: url("https://www2.0zz0.com/2025/09/06/13/100896483.png") no-repeat center center / cover;
+  background: #0b3b01;
   color: #ffffff;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
   position: relative;
-    box-shadow: inset 0 7px 12px 3px rgb(0, 0, 0);}
+  box-shadow: inset 0 7px 12px 3px rgb(0, 0, 0);
+}
 
 /* ✅ محتوى الهيدر */
 .header-content {
@@ -86,6 +85,7 @@ header .cart-btn span{background:rgb(0, 0, 0);
   font-size:0.8rem;
   margin-left:10px}
 
+/* (ملاحظة: تركت ستايل السلايدر القديم في حال تريده لاحقًا) */
 /* slider */
 .slider {width: 100%;
   overflow: hidden;
@@ -97,6 +97,22 @@ header .cart-btn span{background:rgb(0, 0, 0);
  box-shadow: 0 7px 10px rgb(0, 0, 0);}
 .slides {display: flex;transition: transform 3s ease-in-out;gap: 0px;}
 .slides img {height: 100px;width: 1000px;object-fit: contain;background:  #000000;border: 5px solid #ffffff;border-radius:15px;box-shadow: 0 7px 10px rgb(0, 0, 0);}
+
+/* ✅ بنر إعلانات (الجديد) */
+.banner {
+  width: 100%;
+  text-align: center;
+  margin: 15px auto;
+}
+.banner img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 7px 15px rgba(0,0,0,0.5);
+  transition: opacity 0.8s ease-in-out;
+  display: block;
+}
 
 /* ✅ شبكة المنتجات */
 .product-grid {
@@ -207,167 +223,28 @@ section.active{display:block}
       🛒 <span id="cartCount">0</span>
     </a>
 
-    <!-- زر تحميل التطبيق -->
-    <a href="رابط_تحميل_تطبيقك" target="_blank" class="android-btn">
+        <!-- زر تحميل التطبيق -->
+    <a href="https://apk.e-droid.net/apk/app3681342-ihp6dg.apk?v=4" target="_blank" class="android-btn"><p>تحميل التطبيق</p>
       <img src="https://www2.0zz0.com/2025/09/14/17/660677766.png" alt="Android" style="width:30px;height:30px;">
     </a>
-  </div></header>
-
-<!-- 🖼️ بنر -->
-<div class="slider">
-  <div class="slides" id="slideBox">
-    <img src="https://www2.0zz0.com/2025/09/15/11/456291007.png">
-    <img src="https://www2.0zz0.com/2025/09/12/22/593970389.png">  
-     <img src="https://www2.0zz0.com/2025/09/15/11/456291007.png">
-    <img src="https://www2.0zz0.com/2025/09/12/22/593970389.png">  
-     <img src="https://www2.0zz0.com/2025/09/15/11/456291007.png">
-    <img src="https://www2.0zz0.com/2025/09/12/22/593970389.png">  
-     <img src="https://www2.0zz0.com/2025/09/15/11/456291007.png">
-    <img src="https://www2.0zz0.com/2025/09/12/22/593970389.png">  
-
-    
+ 
   </div>
-  <div class="slider-nav prev" onclick="moveSlide(-5)">❮</div>
-  <div class="slider-nav next" onclick="moveSlide(5)">❯</div>
+</header>
+
+<!-- 🖼️ بنر إعلانات ثابت/متغير -->
+<div class="banner">
+  <img id="bannerImage" src="https://www2.0zz0.com/2025/09/15/11/456291007.png" alt="إعلان" />
 </div>
 
 <!-- 🛍️ المنتجات -->
 <section id="products" class="active">
   <div class="product-grid">
 
-   
-
-
     <div class="product-item"
          data-id="p1"
-         data-title="اكتبي للعروس"
+         data-title="اكتبي "
          data-price="1.25"
-         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
-         data-desc="بطاقة طاولة"
-         data-size="13×8"
-         data-discount="0">
-        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
-        <div class="product-details">
-          <h2 class="product-title">اكتبي للعروس</h2>
-          <div class="product-row">
-            
-        <span class="product-price" style="text-decoration: line-through; color: red;">
-          1.25 ريال
-        </span>
-        <span class="product-price" style="color: green; font-weight: bold;">
-          1.25 ريال
-        </span>
-          </div>
-          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
-          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
-        </div>
-    </div>
-    
-    <div class="product-item"
-         data-id="p2"
-         data-title="اكتبي للعروس"
-         data-price="1.25"
-         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
-         data-desc="بطاقة طاولة"
-         data-size="13×8"
-         data-discount="0">
-        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
-        <div class="product-details">
-          <h2 class="product-title">اكتبي للعروس</h2>
-          <div class="product-row">
-            
-        <span class="product-price" style="text-decoration: line-through; color: red;">
-          1.25 ريال
-        </span>
-        <span class="product-price" style="color: green; font-weight: bold;">
-          1.25 ريال
-        </span>
-          </div>
-          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
-          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
-        </div>
-    </div>
-    
-    <div class="product-item"
-         data-id="p2"
-         data-title="اكتبي للعروس"
-         data-price="1.25"
-         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
-         data-desc="بطاقة طاولة"
-         data-size="13×8"
-         data-discount="0">
-        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
-        <div class="product-details">
-          <h2 class="product-title">اكتبي للعروس</h2>
-          <div class="product-row">
-            
-        <span class="product-price" style="text-decoration: line-through; color: red;">
-          1.25 ريال
-        </span>
-        <span class="product-price" style="color: green; font-weight: bold;">
-          1.25 ريال
-        </span>
-          </div>
-          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
-          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
-        </div>
-    </div>
-
-    <div class="product-item"
-         data-id="p2"
-         data-title="اكتبي للعروس"
-         data-price="1.25"
-         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
-         data-desc="بطاقة طاولة"
-         data-size="13×8"
-         data-discount="0">
-        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
-        <div class="product-details">
-          <h2 class="product-title">اكتبي للعروس</h2>
-          <div class="product-row">
-            
-        <span class="product-price" style="text-decoration: line-through; color: red;">
-          1.25 ريال
-        </span>
-        <span class="product-price" style="color: green; font-weight: bold;">
-          1.25 ريال
-        </span>
-          </div>
-          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
-          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
-        </div>
-    </div>
-
-    <div class="product-item"
-         data-id="p2"
-         data-title="اكتبي للعروس"
-         data-price="1.25"
-         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
-         data-desc="بطاقة طاولة"
-         data-size="13×8"
-         data-discount="0">
-        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
-        <div class="product-details">
-          <h2 class="product-title">اكتبي للعروس</h2>
-          <div class="product-row">
-            
-        <span class="product-price" style="text-decoration: line-through; color: red;">
-          1.25 ريال
-        </span>
-        <span class="product-price" style="color: green; font-weight: bold;">
-          1.25 ريال
-        </span>
-          </div>
-          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
-          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
-        </div>
-    </div>
-
-     <div class="product-item"
-         data-id="p2"
-         data-title="اكتبي للعروس"
-         data-price="1.25"
-         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
+         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png,https://www2.0zz0.com/2025/09/12/22/593970389.png"
          data-desc="بطاقة طاولة"
          data-size="13×8"
          data-discount="0">
@@ -413,64 +290,7 @@ section.active{display:block}
         </div>
     </div>
 
-    <div class="product-item"
-         data-id="p2"
-         data-title="اكتبي للعروس"
-         data-price="1.25"
-         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
-         data-desc="بطاقة طاولة"
-         data-size="13×8"
-         data-discount="0">
-        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
-        <div class="product-details">
-          <h2 class="product-title">اكتبي للعروس</h2>
-          <div class="product-row">
-            
-        <span class="product-price" style="text-decoration: line-through; color: red;">
-          1.25 ريال
-        </span>
-        <span class="product-price" style="color: green; font-weight: bold;">
-          1.25 ريال
-        </span>
-          </div>
-          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
-          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
-        </div>
-    </div>
-
-    <div class="product-item"
-         data-id="p2"
-         data-title="rtrtrtrrtrtrوس"
-         data-price="1.25"
-         data-image="https://www2.0zz0.com/2025/09/15/11/456291007.png"
-         data-desc="بطاقة طاولة"
-         data-size="13×8"
-         data-discount="0">
-        <div class="product-image"><img src="https://www2.0zz0.com/2025/09/15/11/456291007.png"></div>
-        <div class="product-details">
-          <h2 class="product-title">اكتبي للعروس</h2>
-          <div class="product-row">
-            
-        <span class="product-price" style="text-decoration: line-through; color: red;">
-          1.25 ريال
-        </span>
-        <span class="product-price" style="color: green; font-weight: bold;">
-          1.25 ريال
-        </span>
-          </div>
-          <button onclick="addToCart(this)" class="contact-button">أضف إلى السلة</button>
-          <button onclick="showProduct(this)" class="contact-button" style="background:#0288d1">عرض المنتج</button>
-        </div>
-    </div>
-
-      
-
-    
-
-
-
-
-
+  </div>
 </section>
 
 <!-- ✅ النافذة المنبثقة -->
@@ -486,8 +306,12 @@ section.active{display:block}
     <p class="price" id="modalPrice"></p>
     <p id="modalDesc"></p>
     <p>الحجم: <span id="modalSize"></span></p>
-    <p> <span id="modalDiscount"></span></p>
+    <p><span id="modalDiscount"></span></p>
     
+    <!-- ✅ زر جديد -->
+    <button onclick="addModalToCart()" class="contact-button" style="background:#28a745">
+      أضف إلى السلة
+    </button>
   </div>
 </div>
 
@@ -515,15 +339,8 @@ function showSection(id){
   document.getElementById(id).classList.add("active");
 }
 
-// 🖼️ سلايدر
-let slideIndex=0;
-function moveSlide(step){
-  const slides=document.getElementById("slideBox");
-  const imgs=slides.querySelectorAll("img");
-  slideIndex=(slideIndex+step+imgs.length)%imgs.length;
-  slides.style.transform=`translateX(${-slideIndex*50}%)`;
-}
-setInterval(()=>moveSlide(1),4000);
+// *** ملاحظة: أزلت كود السلايدر القديم الذي كان يعمل على slideBox
+// لأننا استبدلناه ببنر ثابت/متغير أعلاه ليتجنب أخطاء عند عدم وجود slideBox.
 
 // 🛒 LocalStorage
 const PRODUCTS_KEY = 'shop_products';
@@ -656,8 +473,37 @@ function changeModalImage(step){
   document.getElementById("modalImage").src = modalImages[modalIndex];
 }
 
-
 </script>
+
+<!-- ✅ سكربت البنر (يتغير كل 5 ثواني) -->
+<script>
+const bannerImages = [
+  "img/111.png",
+  "img/222.png",
+  "img/333.png"
+];
+
+let bannerIndex = 0;
+const bannerImg = document.getElementById("bannerImage");
+
+// تأكد العنصر موجود قبل التشغيل (لو الصفحة لم تكمل التحميل)
+function startBannerRotation(){
+  if(!bannerImg) return;
+  bannerImg.style.opacity = 1;
+  setInterval(() => {
+    bannerIndex = (bannerIndex + 1) % bannerImages.length;
+    bannerImg.style.opacity = 0;
+    setTimeout(() => {
+      bannerImg.src = bannerImages[bannerIndex];
+      bannerImg.style.opacity = 1;
+    }, 500);
+  }, 5000);
+}
+
+// ابدأ بعد تحميل الـ DOM
+window.addEventListener('load', startBannerRotation);
+</script>
+
 <!-- 🔔 نافذة تنبيه الاتصال -->
 <div id="netModal" class="modal">
   <div class="modal-content">
@@ -692,6 +538,40 @@ window.addEventListener("load", checkConnection);
 // زر إعادة المحاولة
 function retryConnection() {
   checkConnection();
+}
+
+function addModalToCart(){
+  const title = document.getElementById("modalTitle").textContent;
+  const price = parseFloat(document.getElementById("modalPrice").textContent.replace(/[^\d.]/g,'')) || 0;
+  const desc = document.getElementById("modalDesc").textContent.replace("الوصف: ","");
+  const size = document.getElementById("modalSize").textContent;
+  const discount = parseFloat(document.getElementById("modalDiscount").textContent.replace("الخصم %",""))||0;
+
+  const product = {
+    id: title, // استخدمت العنوان كـ id هنا مثل ما في الكود السابق — لو تفضل id رقمية غير العنوان أخبرني
+    title_ar: title,
+    price: price,
+    images: [modalImages[modalIndex]], // ✅ الصورة الحالية
+    desc: desc,
+    size: size,
+    discount: discount
+  };
+
+  let products = getProducts();
+  const existingIndex = products.findIndex(p => p.id === product.id);
+  if (existingIndex !== -1) {
+    products[existingIndex] = product;
+  } else {
+    products.push(product);
+  }
+  saveProducts(products);
+
+  let cart = getCart();
+  const item = cart.find(i => i.id === product.id);
+  if(item){item.qty+=1}else{cart.push({id:product.id,qty:1})}
+  saveCart(cart);
+  updateCartCount();
+  showToast("✅ تمت إضافة الصورة المختارة إلى السلة","success");
 }
 </script>
 
